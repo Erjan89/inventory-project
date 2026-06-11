@@ -7,28 +7,14 @@ from datetime import datetime, timedelta
 from functools import wraps
 import os
 import io
-import openpyxl # Для Excel
-from reportlab.pdfgen import canvas # Для PDF
+import openpyxl
+from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
-from flask import Flask, request, jsonify, send_file
-from flask_cors import CORS  # Убедись, что эта строчка есть в импортах
-from flask_sqlalchemy import SQLAlchemy
-# ... остальные импорты
 
 app = Flask(__name__)
-
-# ДОБАВЬ ЭТУ СТРОЧКУ ПРЯМО ЗДЕСЬ (разрешает доступ с любых адресов)
 CORS(app, resources={r"/*": {"origins": "*"}})
-
-# ... весь остальной код (конфиги, маршруты) остаётся без изменений
-
-# ==========================================
-# 1. КОНФИГУРАЦИЯ ПРИЛОЖЕНИЯ
-# ==========================================
-app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inventory_pro_v2.db' # Новая БД, так как структура изменилась
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
