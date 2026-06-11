@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:5000/api';
+const BASE_URL = 'https://inventory-project-rxk5.onrender.com/api';
 
 export const apiFetch = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
